@@ -1,0 +1,21 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs: #all the jobs of the workflow
+     check-bats-version:
+          runs-on: ubuntu-latest
+          steps: #what does the work flow do and use (on the hosted VM)
+               - uses: actions/checkout@v3
+               - uses: actions/setup-node@v3
+                 with: #specifies necessities for VM needs
+                    node-version: '14'
+               # run commands on your runner VM
+               - run: npm install -g bats
+               - run: bats -v
+               # Checks pushed code, installs bats  testing framework, about outputs version for you. Now we push
+
+# name of workflow for actiosn tab
+#  name for workflow runs w/ name attached
+# what triggers workflow (every push causes the check)
+
+# visualize workflwos
